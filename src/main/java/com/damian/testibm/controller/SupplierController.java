@@ -19,7 +19,7 @@ public class SupplierController {
     @Autowired
     public SupplierService supplierService;
 
-    @GetMapping("/")
+    @GetMapping()
     public ModelAndView supplierList(ModelAndView modelAndView) {
         modelAndView.setViewName("suppliers");
         modelAndView.addObject("suppliers", supplierService.listAllOrdered());
