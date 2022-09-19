@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+
+<title>Usuarios</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Listado de proveedores</h1>
+		
+
+		<div th:if="${puntuacionError != null}" class="alert alert-danger" role="alert">Hubo problemas al puntuar</div>
+		<div th:if="${puntuacionCorrecta != null}" class="alert alert-success" role="alert">Puntuación guardada correctamente</div>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Código</th>
+					<th>Nombre</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="supplier : ${suppliers}">
+					<td><span th:text="${supplier.id}"></span></td>
+					<td><a href="#" th:href="@{/supplier/id?idSupplier=__${supplier.id}__}"><span th:text="${supplier.name}"></span></a></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+</body>
+</html>
